@@ -1,23 +1,38 @@
 # Azure credentials
 # https://learn.hashicorp.com/tutorials/terraform/azure-remote?in=terraform/azure-get-started#configure-a-service-principal
 
-variable "azure_subscriptionid" {
+variable "azure_subscription_id" {
   description = "Azure subscription id, obtained as `SUBSCRIPTION_ID` when running `az account list`."
   type        = string
 }
 
-variable "azure_tenantid" {
+variable "azure_tenant_id" {
   description = "Azure tenant id, obtained as `tenant` when creating a service principal."
   type        = string
 }
 
-variable "azure_clientid" {
+variable "azure_client_id" {
   description = "Azure client ID, obtained as `appID` when creating a service principal."
   type        = string
 }
 
-variable "azure_clientsecret" {
+variable "azure_client_secret" {
   description = "Azure client secret, obtained as `password` when creating a service principal."
   type        = string
   sensitive   = true
+  # ^ mark the client secret as sensitive to prevent it from accidentally showing up in logs
+}
+
+# https://azure.microsoft.com/en-us/global-infrastructure/geographies/#choose-your-region
+variable "azurerm_region" {
+  description = "Azure region"
+  type        = string
+  # region `westeurope` is located in the Netherlands
+  default = "westeurope"
+}
+
+variable "environment" {
+  description = "name of the environment"
+  type        = string
+  default     = "dev"
 }

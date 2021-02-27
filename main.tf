@@ -25,9 +25,18 @@ terraform {
 # Configure the Microsoft Azure Provider, see
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference
 provider "azurerm" {
-  subscription_id = var.subscriptionid
-  client_id       = var.clientid
-  client_secret   = var.clientsecret
-  tenant_id       = var.tenantid
+  subscription_id = var.azure_subscription_id
+  client_id       = var.azure_client_id
+  client_secret   = var.azure_client_secret
+  tenant_id       = var.azure_tenant_id
   features {}
+}
+
+locals {
+  prefix = "terraform-sentia"
+}
+
+resource "azurerm_resource_group" "rg" {
+  name     = "${local.prefix}-rg"
+  location = var.azurerm_region
 }

@@ -1,5 +1,5 @@
 # https://learn.hashicorp.com/tutorials/terraform/azure-remote?in=terraform/azure-get-started#update-the-terraform-cloud-environment-variables
-ARM_SUBSCRIPTION_ID = ""
-ARM_TENANT_ID = ""
-ARM_CLIENT_ID = ""
-ARM_CLIENT_SECRET = ""
+azure_subscription_id = ""
+azure_tenant_id = ""
+azure_client_id = ""
+azure_client_secret = ""
