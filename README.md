@@ -23,6 +23,7 @@ as a way to store state for and collaborate on Terraform projects.
 if the workspace has not been set up,
 set your Azure credentials in its environment variables as described in the
 [Terraform Azure guide](https://learn.hashicorp.com/tutorials/terraform/azure-remote?in=terraform/azure-get-started#configure-a-service-principal).
+- In this GitHub repository ensure the secrets required for the [Terraform Github Action](https://github.com/marketplace/actions/hashicorp-setup-terraform) are set.
 - [Pass any desired arguments](https://www.terraform.io/docs/language/values/variables.html#assigning-values-to-root-module-variables) to change default values for any variables described in `variables.tf`
 
 ## Usage
