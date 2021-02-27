@@ -29,12 +29,12 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init -input=false
+        run: terraform init
 
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -input=false -no-color
+        run: terraform plan -no-color
         continue-on-error: true
 
       - run: echo ${{ steps.plan.outputs.stdout }}
@@ -75,4 +75,4 @@ jobs:
       # # disabling CD as this is just a PoC
       # - name: Terraform Apply
       #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      #   run: terraform apply -input=false -auto-approve
+      #   run: terraform apply -auto-approve
