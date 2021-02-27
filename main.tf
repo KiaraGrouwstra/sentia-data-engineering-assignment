@@ -5,11 +5,10 @@ terraform {
   # it's best practice to store state remotely to enable cooperation.
   backend "remote" {
     # for this PoC I'll be using TerraForm Cloud.
-    hostname = "app.terraform.io"
-    # personal account, should be a company account for real-life scenarios!
-    organization = "cinerealkiara"
+    hostname     = "app.terraform.io"
+    organization = var.terraform_org
     workspaces {
-      name = "sentia-assignment"
+      name = var.terraform_workspace
     }
   }
   required_providers {
