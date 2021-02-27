@@ -1,12 +1,12 @@
 # https://github.com/marketplace/actions/hashicorp-setup-terraform
-# https://github.com/hashicorp/learn-terraform-github-actions/blob/master/.github/workflows/terraform.yml
+# https://github.com/hashicorp/learn-terraform-github-actions/blob/main/.github/workflows/terraform.yml
 
 name: "Terraform"
 
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
 
 jobs:
@@ -74,5 +74,5 @@ jobs:
 
       # # disabling CD as this is just a PoC
       # - name: Terraform Apply
-      #   if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       #   run: terraform apply -input=false -auto-approve
