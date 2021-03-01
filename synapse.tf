@@ -32,7 +32,7 @@ resource "azurerm_synapse_workspace" "synapse" {
 }
 
 resource "azurerm_synapse_sql_pool" "synapse_sql" {
-  name                 = "${local.prefix}-synapse-sql"
+  name                 = "${local.prefix}_synapse_sql"
   synapse_workspace_id = azurerm_synapse_workspace.synapse.id
   sku_name             = "DW100c" # DW100c, DW200c, DW300c, DW400c, DW500c, DW1000c, DW1500c, DW2000c, DW2500c, DW3000c, DW5000c, DW6000c, DW7500c, DW10000c, DW15000c or DW30000c
   create_mode          = "Default"
@@ -47,7 +47,7 @@ resource "azurerm_synapse_sql_pool" "synapse_sql" {
 }
 
 resource "azurerm_synapse_spark_pool" "example" {
-  name                 = "${local.prefix}-synapse-spark"
+  name                 = "${local.prefix}synapsespark" # alphanumeric
   synapse_workspace_id = azurerm_synapse_workspace.synapse.id
   node_size_family     = "MemoryOptimized"
   node_size            = "Small" # Small, Medium, Large

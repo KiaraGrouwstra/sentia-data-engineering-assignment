@@ -1,5 +1,5 @@
 resource "azurerm_analysis_services_server" "server" {
-  name                      = "${local.prefix}-ssas"
+  name                      = "${local.prefix}ssas" # alphanumeric
   location                  = azurerm_resource_group.rg.location
   resource_group_name       = azurerm_resource_group.rg.name
   sku                       = "S0" # D1, B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2
