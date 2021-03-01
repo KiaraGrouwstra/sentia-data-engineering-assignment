@@ -75,3 +75,19 @@ resource "azurerm_virtual_hub" "vhub" {
   address_prefix      = "10.0.1.0/24"
   tags                = local.default_tags
 }
+
+resource "azurerm_subnet" "subnet" {
+  name                 = "${local.prefix}-subnet"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = ["10.0.1.0/24"]
+
+  # delegation {
+  #   name = "delegation"
+
+  #   service_delegation {
+  #     name    = "Microsoft.ContainerInstance/containerGroups"
+  #     actions = ["Microsoft.Network/virtualNetworks/subnets/join/action", "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action"]
+  #   }
+  # }
+}
