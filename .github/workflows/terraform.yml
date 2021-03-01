@@ -5,8 +5,8 @@ name: "Terraform"
 
 on:
   push:
-    branches:
-      - main
+    # run CI on any commit or PR
+    # branches:
   pull_request:
 
 jobs:
@@ -33,7 +33,6 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        if: github.event_name == 'pull_request'
         run: terraform plan -no-color
         continue-on-error: true
 
@@ -75,4 +74,5 @@ jobs:
       # # disabling CD as this is just a PoC
       # - name: Terraform Apply
       #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      #   run: terraform apply -auto-approve
+      #   # TODO: ensure branch names line up with environment names, and only trigger CD for such env branches instead of `main`
+      #   run: terraform apply -auto-approve -var="environment=$(echo ${GITHUB_HEAD_REF} | tr / -)"
