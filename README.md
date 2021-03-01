@@ -17,6 +17,8 @@ However, our client has indicated that requirements may evolve over time,
 so with that in mind, as well as to reduce vendor lock-in,
 we will opt to implement our infrastructure-as-code PoC
 using a cloud-agnostic tool, [Terraform](https://www.terraform.io/).
+An additional benefit of this particular tool is it is declarative,
+meaning its code is furthermore agnostic to the present state of the infrastructure.
 
 ### Cloud infra design
 
