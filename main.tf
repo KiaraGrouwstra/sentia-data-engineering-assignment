@@ -87,6 +87,13 @@ resource "azuread_user" "user_data_engineers" {
   password            = random_password.passwords[index(keys(local.data_engineers), each.key)].result
 }
 
+# let the admin belong to any groups
+resource "azuread_group_member" "member_admin" {
+  # for_each         = [azuread_group.group_data_engineers]
+  group_object_id  = azuread_group.group_data_engineers.id # TODO: each.value
+  member_object_id = data.azurerm_client_config.current.object_id
+}
+
 # network
 
 resource "azurerm_network_security_group" "nsg" {
