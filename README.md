@@ -53,6 +53,17 @@ while the assignment allows us to design a pipeline independent of the delivery,
 we will simply implement our CI/CD PoC using Github's built-in CI/CD capabilities in the form of [Github Actions](https://github.com/features/actions) as well,
 which may immediately double as a functional CI on our PoC repository itself.
 
+## Proof of Concept (+ assumptions)
+
+The code for the PoC can be found in this repository, spanning:
+- a PoC for the infrastructure as a Terraform project, spanning any `*.tf` files as well as `terraform.auto.tfvars.example` (a copy of which should be renamed to `terraform.auto.tfvars` and filled out).
+- a PoC for the CI/CD flows in `.github/workflows/terraform.yml`
+
+### assumptions
+
+- Given the potential costs incurred to actually create resources, this PoC will constrain testing to the automated verification level (i.e. `terraform plan`), and may as such remain incomplete.
+- Details of user roles for federation system Azure Active Directory have yet to be fleshed out in a follow-up meeting, for the PoC it will suffice to settle for creating a single user group and allowing anyone connected to the client's Azure virtual network to connect to the infrastructure.
+
 ## Setup Instructions
 
 - [Download and install](https://www.terraform.io/downloads.html) Terraform.
