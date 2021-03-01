@@ -19,24 +19,57 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 2.49"
     }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = "~> 0.7"
+    }
   }
+}
+
+locals {
+  # keep prefix short, many names have a 24-char limit. moreover, many resources dislike `-`, some `_`...
+  prefix = var.environment
+  default_tags = {
+    Environment = var.environment
+  }
+  data_engineers = [
+    {
+      user_principal_name = "jdoe@sentia.com"
+      display_name        = "J. Doe"
+      mail_nickname       = "jdoe"
+    }
+  ]
 }
 
 # Configure the Microsoft Azure Provider, see
 # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference
 provider "azurerm" {
   subscription_id = var.azure_subscription_id
+  tenant_id       = var.azure_tenant_id
   client_id       = var.azure_client_id
   client_secret   = var.azure_client_secret
-  tenant_id       = var.azure_tenant_id
   features {}
 }
 
-locals {
-  prefix = "terraform-sentia"
-}
+data "azurerm_client_config" "current" {}
 
 resource "azurerm_resource_group" "rg" {
   name     = "${local.prefix}-rg"
   location = var.azurerm_region
+  tags     = local.default_tags
+}
+
+resource "azuread_group" "group_data_engineers" {
+  name        = "${local.prefix}-group-data-engineers"
+  description = "data engineers at Sentia's client authorized to access the applications"
+  owners      = [data.azurerm_client_config.current.object_id]
+  # members = []
+  prevent_duplicate_names = true
+}
+
+# default passwords for our users
+resource "random_password" "passwords" {
+  count   = length(local.data_engineers)
+  length  = 16
+  special = true
 }
