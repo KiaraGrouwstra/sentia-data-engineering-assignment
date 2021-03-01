@@ -72,3 +72,9 @@ variable "mongo_shard_key" {
   description = "The name of the key to partition MongoDB on for sharding. There must not be any other unique index keys."
   type        = string
 }
+
+variable "cognitive_services" {
+  description = "desired Cognitive Services with their corresponding plans. see https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=linux#create-a-cognitive-services-resource for an overview of services offered."
+  type        = map(string)
+  default     = {}
+}

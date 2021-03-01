@@ -9,3 +9,6 @@ mysql_password = ""
 synapse_password = ""
 emails = []
 mongo_shard_key = ""
+cognitive_services = {
+  "Recommendations" = "S0"
+}
