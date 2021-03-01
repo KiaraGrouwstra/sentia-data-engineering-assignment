@@ -3,17 +3,27 @@ see https://github.com/sentialabs/Data-Engineering
 
 ## Design
 
+### Cloud choice
+
 We note that requirement-wise, the inclusion of Microsoft PowerBI means that
 we will at the very least require Microsoft Azure for our cloud setup.
 It appears that presently our client's requirements
 can be met without adding additional cloud providers,
 so to simplify our PoC we will presently use just Azure.
+
+### Infrastructure as Code
+
 However, our client has indicated that requirements may evolve over time,
 so with that in mind, as well as to reduce vendor lock-in,
 we will opt to implement our infrastructure-as-code PoC
 using a cloud-agnostic tool, [Terraform](https://www.terraform.io/).
 
-## Preparation
+### Cloud infra design
+
+[CloudSkew](https://cloudskew.com/) Design diagram:
+![cloudskew-design-diagram](./sentia-infra-design.png)
+
+## Setup Instructions
 
 - [Download and install](https://www.terraform.io/downloads.html) Terraform.
 - [Download and install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI.
