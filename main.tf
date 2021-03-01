@@ -36,13 +36,13 @@ locals {
   default_tags = {
     Environment = var.environment
   }
-  data_engineers = [
-    {
+  data_engineers = {
+    "jdoe" = {
       user_principal_name = "jdoe@sentia.com"
       display_name        = "J. Doe"
       mail_nickname       = "jdoe"
     }
-  ]
+  }
 }
 
 # Configure the Microsoft Azure Provider, see
@@ -76,6 +76,15 @@ resource "random_password" "passwords" {
   count   = length(local.data_engineers)
   length  = 16
   special = true
+}
+
+# users for the data engineering team
+resource "azuread_user" "user_data_engineers" {
+  for_each            = local.data_engineers
+  user_principal_name = each.value.user_principal_name
+  display_name        = each.value.display_name
+  mail_nickname       = each.value.mail_nickname
+  password            = random_password.passwords[index(keys(local.data_engineers), each.key)].result
 }
 
 # network
