@@ -64,7 +64,20 @@ The code for the PoC can be found in this repository, spanning:
 ### assumptions
 
 - Given the potential costs incurred to actually create resources, this PoC will constrain testing to the automated verification level (i.e. `terraform plan`), and may as such remain incomplete.
+  - Further connectivity between the components may be required.
+  - Admin usernames may need to be further customized.
+  - While network components are in place, network constraints need further fleshing out.
+  - While any parameters may be made dynamic using input variables, within this PoC it is presently assumed values may be hardcoded and changed in this codebase directly.
+  - User group membership is left TODO.
 - Details of user roles for federation system Azure Active Directory have yet to be fleshed out in a follow-up meeting, for the PoC it will suffice to settle for creating a single user group and allowing anyone connected to the client's Azure virtual network to connect to the infrastructure.
+  - Notably, role access constraints (authorization) needs to be implemented further.
+
+### cost considerations
+
+- Components have generally been defaulted to low-cost plans, to be upgraded as required.
+- The cost management component will routinely log infrastructure costs.
+- The use of Terraform prevents vendor lock-in, enabling potential switches or multi-/hybrid-cloud solutions as desired.
+- Terraform Cloud may serve as an additional tool facilitating dynamically calculating cost estimates, further enabling policies to prevent accidental changes steeply increasing costs.
 
 ## Setup Instructions
 
