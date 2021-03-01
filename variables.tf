@@ -62,6 +62,12 @@ variable "mysql_password" {
   sensitive   = true
 }
 
+variable "synapse_password" {
+  description = "Synapse Workspace password"
+  type        = string
+  sensitive   = true
+}
+
 variable "mongo_shard_key" {
   description = "The name of the key to partition MongoDB on for sharding. There must not be any other unique index keys."
   type        = string

@@ -6,5 +6,6 @@ azure_client_secret = ""
 azure_ad_admin = ""
 mssql_password = ""
 mysql_password = ""
+synapse_password = ""
 emails = []
 mongo_shard_key = ""
