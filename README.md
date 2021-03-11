@@ -81,8 +81,10 @@ The code for the PoC can be found in this repository, spanning:
 
 ## Setup Instructions
 
-- [Download and install](https://www.terraform.io/downloads.html) Terraform.
-- [Download and install](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) the Azure CLI.
+- Download and install:
+  - [Terraform](https://www.terraform.io/downloads.html)
+  - [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+  - [Terraform Docs](https://terraform-docs.io/)
 - Use `terraform login` to log in to Terraform Cloud,
 as a way to store state for and collaborate on Terraform projects.
 - Log in to [Terraform Cloud](https://app.terraform.io/) --
@@ -99,6 +101,9 @@ set your Azure credentials in its environment variables as described in the
 
 - Verify that the configuration files are syntactically valid:
   `terraform validate`
+
+- Generate documentation:
+  `terraform-docs markdown table . > docs.md`
 
 - Generate and show an execution plan:
   `terraform plan`
