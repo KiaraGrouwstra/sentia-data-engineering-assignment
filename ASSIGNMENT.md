@@ -56,7 +56,7 @@ What they now expect us to do as deliverables:
 - [GCP Big Data](https://cloud.google.com/what-is-big-data)
 - [Containers](https://www.docker.com/resources/what-container)
 - [Microsoft Azure cloud Analytics solutions](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)
-- [AWS big data](https://aws.amazon.com/big-data/datalakes-and-analytics/)https://www.ibm.com/nl-en/analytics/machine-learning
+- [AWS big data](https://aws.amazon.com/big-data/datalakes-and-analytics/)
 - [IBM Machine Learning](https://www.ibm.com/nl-en/analytics/machine-learning)
 - [Cloud Providers Private Connectivity](https://www.megaport.com/blog/comparing-cloud-providers-private-connectivity/)
 ## License
