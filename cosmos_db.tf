@@ -6,7 +6,7 @@ resource "azurerm_cosmosdb_account" "cosmos" {
   kind                          = "MongoDB" # GlobalDocumentDB or MongoDB
   public_network_access_enabled = false
   enable_automatic_failover     = true
-  key_vault_id                  = azurerm_key_vault.keyvault.id
+  key_vault_key_id              = azurerm_key_vault.keyvault.id
   tags                          = local.default_tags
   enable_free_tier              = true
   # ip_range_filter = "0.0.0.0,0.0.0.0"
