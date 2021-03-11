@@ -81,7 +81,7 @@ No Modules.
 | azure\_subscription\_id | Azure subscription id, obtained as `SUBSCRIPTION_ID` when running `az account list`. | `string` | n/a | yes |
 | azure\_tenant\_id | Azure tenant id, obtained as `tenant` when creating a service principal. | `string` | n/a | yes |
 | azurerm\_region | Azure region | `string` | `"westeurope"` | no |
-| cognitive\_services | desired Cognitive Services with their corresponding plans. see https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=linux#create-a-cognitive-services-resource for an overview of services offered. | `map(string)` | `{}` | no |
+| cognitive\_services | desired Cognitive Services with their corresponding plans. see [here](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=linux#create-a-cognitive-services-resource) for an overview of services offered. | `map(string)` | `{}` | no |
 | emails | a list of email addresses to send notifications to | `list(string)` | `[]` | no |
 | environment | name of the environment | `string` | `"dev"` | no |
 | mariadb\_password | MariaDB Server password | `string` | n/a | yes |

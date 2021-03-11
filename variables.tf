@@ -74,7 +74,7 @@ variable "mongo_shard_key" {
 }
 
 variable "cognitive_services" {
-  description = "desired Cognitive Services with their corresponding plans. see https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=linux#create-a-cognitive-services-resource for an overview of services offered."
+  description = "desired Cognitive Services with their corresponding plans. see [here](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=linux#create-a-cognitive-services-resource) for an overview of services offered."
   type        = map(string)
   default     = {}
 }
