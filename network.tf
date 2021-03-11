@@ -17,10 +17,10 @@ resource "azurerm_virtual_network" "vnet" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   address_space       = ["10.0.0.0/16"]
-  ddos_protection_plan {
-    id     = azurerm_network_ddos_protection_plan.ddos.id
-    enable = true
-  }
+  # ddos_protection_plan {
+  #   id     = azurerm_network_ddos_protection_plan.ddos.id
+  #   enable = true
+  # }
   # enable VM protection for all the subnets in this Virtual Network
   vm_protection_enabled = true
   tags                  = local.default_tags
